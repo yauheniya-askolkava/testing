@@ -7,7 +7,7 @@
  * @param {any} val
  * @returns {boolean}
  */
-const isFalsy = _;
+const isFalsy = (val) => val === [] || !Boolean(val);
 
 
 // this works!  no need to change it
