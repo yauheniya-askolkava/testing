@@ -19,9 +19,11 @@ describe("bracket notation", () => {
     const obj = {
       swimming: "mackerel",
     };
+
     obj[motion] = "cheetah";
     obj["flying"] = "crane";
     expect(object.flying).to.eql("crane");
+
     expect(obj.running).to.eql(fastAnimal);
     expect(obj[water]).to.eql("mackerel");
   });
