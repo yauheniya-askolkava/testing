@@ -1,26 +1,26 @@
-'use strict';
+"use strict";
 
 const expect = chai.expect;
 
-describe('dot notation', () => {
-  it('types of tasty treats', () => {
-    const favorite = _;
+describe("dot notation", () => {
+  it("types of tasty treats", () => {
+    const favorite = "soup";
     const obj = {
-      _: favorite,
-      dry: _
+      wet: favorite,
+      dry: "bread",
     };
-    expect(_).to.eql('bread');
-    expect(obj.wet).to.eql('soup');
+    expect(obj.dry).to.eql("bread");
+    expect(obj.wet).to.eql("soup");
   });
-  it('a menagerie', () => {
-    const swimming = 'mackerel';
+  it("a menagerie", () => {
+    const swimming = "mackerel";
     const obj = {
-      flying: _,
-      _: swimming,
-      _: 'cheetah'
+      flying: "crane",
+      swimming: swimming,
+      running: "cheetah",
     };
-    expect(_).to.eql('crane');
-    expect(obj.running).to.eql(_);
-    expect(obj.swimming).to.eql('mackerel')
+    expect(obj.flying).to.eql("crane");
+    expect(obj.running).to.eql("cheetah");
+    expect(obj.swimming).to.eql("mackerel");
   });
 });
