@@ -19,7 +19,7 @@ describe("computed properties", () => {
     const inTheSky = "flying";
     const obj = {
       [inTheSky]: "crane",
-      [mackerel]: "mackerel",
+      [mackerel]: swimming,
       running: "cheetah",
     };
     expect(obj.flying).to.eql("crane");

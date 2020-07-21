@@ -405,6 +405,22 @@
       ]
     },
     {
+      "path": "/5-higher-order-functions",
+      "dirs": [
+        {
+          "path": "/exercises",
+          "files": [
+            {
+              "path": "/filtering.js"
+            },
+            {
+              "path": "/mapping.js"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "path": "/extra-object-transformations",
       "dirs": [
         {

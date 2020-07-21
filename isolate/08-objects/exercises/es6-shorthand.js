@@ -28,6 +28,6 @@ describe("ES6 object literal shorthand", () => {
     };
     expect(obj.flying).to.eql("crane");
     expect(obj.running).to.eql("cheetah");
-    expect(obj[swimming]).to.eql("mackerel");
+    expect(obj.swimming).to.eql("mackerel");
   });
 });

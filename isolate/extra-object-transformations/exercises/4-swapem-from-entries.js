@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const assert = chai.assert;
 
@@ -8,85 +8,80 @@ const assert = chai.assert;
  * @returns {Object} - the swapped object
  */
 const swapem = (obj) => {
-
-  const objEntries = Object._(_);
-  const swappedEntries = objEntries
-    .map((entry) => {
-      const key = _;
-      const value = _;
-      if (_) {
-        return [_, _];
-      } else {
-        return [_, _];
-      }
-    });
-  const swapped = Object._(_);
+  const objEntries = Object.entries(obj);
+  const swappedEntries = objEntries.map((entry) => {
+    const key = entry[0];
+    const value = entry[1];
+    if (typeof value !== "string") {
+      return [key, value];
+    } else {
+      return [value, key];
+    }
+  });
+  const swapped = Object.fromEntries(swappedEntries);
 
   return swapped;
 };
 
-
-describe('swapem switches the key and value for each entry', () => {
-
+describe("swapem switches the key and value for each entry", () => {
   describe("it correctly swaps the entries", () => {
-    it('returns an empty object for an empty object', () => {
+    it("returns an empty object for an empty object", () => {
       const actual = swapem({});
       assert.deepStrictEqual(actual, {});
     });
-    it('swaps all entries when all values are strings', () => {
+    it("swaps all entries when all values are strings", () => {
       const actual = swapem({
-        a: 'H',
-        b: 'Y',
-        c: 'F',
+        a: "H",
+        b: "Y",
+        c: "F",
       });
       assert.deepStrictEqual(actual, {
-        H: 'a',
-        Y: 'b',
-        F: 'c'
+        H: "a",
+        Y: "b",
+        F: "c",
       });
     });
-    it('swaps no entries when none are strings', () => {
+    it("swaps no entries when none are strings", () => {
       const actual = swapem({
         a: 1,
         b: true,
-        c: null
+        c: null,
       });
       assert.deepStrictEqual(actual, {
         a: 1,
         b: true,
-        c: null
+        c: null,
       });
     });
-    it('only swaps string entries in a mixed object', () => {
+    it("only swaps string entries in a mixed object", () => {
       const arg = {
         a: 1,
         b: 0,
-        c: 'hello',
-        d: 'goodbye',
+        c: "hello",
+        d: "goodbye",
         e: true,
       };
       const actual = swapem(arg);
       assert.deepStrictEqual(actual, {
         a: 1,
         b: 0,
-        hello: 'c',
-        goodbye: 'd',
+        hello: "c",
+        goodbye: "d",
         e: true,
       });
     });
   });
 
-  describe('it uses the argument object correctly', () => {
-    it('does not modify the argument', () => {
-      const arg = { e: 'hello', f: '', g: 'goodbye' };
+  describe("it uses the argument object correctly", () => {
+    it("does not modify the argument", () => {
+      const arg = { e: "hello", f: "", g: "goodbye" };
       swapem(arg);
-      assert.deepStrictEqual(arg, { e: 'hello', f: '', g: 'goodbye' });
+      assert.deepStrictEqual(arg, { e: "hello", f: "", g: "goodbye" });
     });
-    it('returns a new object', () => {
+    it("returns a new object", () => {
       const arg = {};
       const returned = swapem(arg);
       assert.notStrictEqual(returned, arg);
     });
   });
 });
-

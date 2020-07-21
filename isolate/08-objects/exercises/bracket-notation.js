@@ -20,7 +20,7 @@ describe("bracket notation", () => {
       swimming: "mackerel",
     };
 
-    obj[motion] = "cheetah";
+    obj[motion] = fastAnimal;
     obj["flying"] = "crane";
     expect(object.flying).to.eql("crane");
 
