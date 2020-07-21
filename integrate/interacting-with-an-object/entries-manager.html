@@ -104,15 +104,16 @@
       if (query === null) { return; }
 
       let searchResults = {};
-      for (const i in userEntries) {
+      for (const key in userEntries) {
         const value = userEntries[key];
-        const matchesQuery = userEntries[i]; // does the string value include the query?
+        const checkValue = new RegExp(query);
+        const matchesQuery = checkValue.test(value); // does the string value include the query?
         if (matchesQuery) {
-          searchResults[i] = value;
+          searchResults[key] = value;
         }
       }
 
-      displayEntriesHandler(`search results for "${query}", searchResults);
+      displayEntriesHandler(`search results for "${query}"`, searchResults);
     };
   </script>
 </head>
